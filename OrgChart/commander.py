@@ -66,7 +66,9 @@ class Command(cmd.Cmd):
         Average age of all employees for department INCLUDING all its sub-departments (all levels, for example for Delivery it includes also Development, Python, Java) - for given department ID
         '''
         # assert len(args) == 2, f'Avgage expect one parameter, {len(args)} found'
-        print(self.get_Avgage(args[0]))
+
+        avg_age = self.get_Avgage(args)
+        print('{avg_age:f} years'.format(avg_age = avg_age))
 
     # ------------ COMMANDS get_* functions -------------- 
 
@@ -80,10 +82,10 @@ class Command(cmd.Cmd):
         count = 0
 
         for people in self._get_employees_in_departmens_tree(department_id):
-            print(people)
+            # print(people)
             count = count + 1
 
-        print('COUNT', count)
+        # print('COUNT', count)
         return count
 
     def get_People(self, department_id):
@@ -107,15 +109,15 @@ class Command(cmd.Cmd):
 
         for people in self._get_employees_in_departmens_tree(department_id):
             datum = people['birth_date']
-            print(datum, current_date, current_date - datum)
+            # print(datum, current_date, current_date - datum)
             age = (current_date - datum) 
             ages.append(age.days / 365.25)
 
 
-        print('AGES', ages)
+        # print('AGES', ages)
         avg_ages = sum(ages, 0.0) / len(ages)
-        print(avg_ages)
-        exit()
+        # print(avg_ages)
+        
         return avg_ages
 
         # ---- UTILS --------------
