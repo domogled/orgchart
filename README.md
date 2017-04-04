@@ -25,6 +25,3 @@ $ ./setup_dev.sh
 $ pytest
 `
 
-## TODO
-
-do_* funkce z balíčku cmd ukončí smyčku (loop) v případě, kdy vrací nějakou hodnotu. Proč?
